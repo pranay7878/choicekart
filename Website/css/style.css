@@ -1879,4 +1879,388 @@ button {
     .category-card h4 { font-size: 11px; }
     .app-content h2 { font-size: 26px; }
     .why-us-card { padding: 24px 16px; }
+    .promo-ticker .ticker-content { animation-duration: 12s; }
+    .trust-badges-grid { grid-template-columns: repeat(2, 1fr); }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .brands-strip .brands-list { gap: 24px; }
+}
+
+/* ===== PREMIUM UPGRADES ===== */
+
+/* 1. Scroll Fade-In-Up Animation */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 2. Product Card Glassmorphism on Hover */
+.product-card:hover {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 32px rgba(10, 143, 63, 0.12), 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+/* 3. Gradient Text for Section Headers */
+.section-header h2,
+.trust-section .section-header h2 {
+    background: linear-gradient(135deg, #1A1D2E 0%, #0A8F3F 50%, #F37021 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.section-header h2 i {
+    -webkit-text-fill-color: initial;
+}
+
+/* 4. Pulse Animation on Shop Now Button */
+@keyframes pulse-glow {
+    0% { box-shadow: 0 4px 15px rgba(10, 143, 63, 0.3); }
+    50% { box-shadow: 0 4px 25px rgba(10, 143, 63, 0.5), 0 0 40px rgba(10, 143, 63, 0.2); }
+    100% { box-shadow: 0 4px 15px rgba(10, 143, 63, 0.3); }
+}
+
+.hero-buttons .btn-primary {
+    animation: pulse-glow 2.5s ease-in-out infinite;
+}
+
+.hero-buttons .btn-primary:hover {
+    animation: none;
+    box-shadow: 0 6px 30px rgba(10, 143, 63, 0.5);
+}
+
+/* 5. Shimmer/Loading Skeleton on Product Images */
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+.product-image {
+    position: relative;
+}
+
+.product-image::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(90deg, transparent 25%, rgba(255,255,255,0.6) 50%, transparent 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.8s ease-in-out infinite;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 1;
+    transition: opacity 0.4s;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.product-image.loaded::before {
+    opacity: 0;
+}
+
+/* 6. Better Offer Cards - Pattern Overlay */
+.offer-card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: radial-gradient(circle at 20% 80%, rgba(255,255,255,0.08) 1px, transparent 1px),
+                       radial-gradient(circle at 80% 20%, rgba(255,255,255,0.06) 1px, transparent 1px),
+                       radial-gradient(circle at 50% 50%, rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size: 30px 30px, 40px 40px, 20px 20px;
+    pointer-events: none;
+    border-radius: var(--radius-lg);
+}
+
+.offer-card.offer-highlight {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* 7. Animated Counter Styles */
+.trust-section {
+    background: linear-gradient(135deg, #FAFBFC 0%, #E8F5E9 100%);
+    padding: 40px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.trust-badges-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    text-align: center;
+}
+
+.trust-badge {
+    padding: 28px 16px;
+    background: white;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border: 1px solid var(--border);
+}
+
+.trust-badge:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.trust-badge .trust-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 14px;
+    font-size: 22px;
+}
+
+.trust-icon.green { background: var(--primary-light); color: var(--primary); }
+.trust-icon.orange { background: var(--accent-light); color: var(--accent); }
+.trust-icon.blue { background: #E3F2FD; color: #1565C0; }
+.trust-icon.purple { background: #F3E5F5; color: #7B1FA2; }
+
+.trust-badge .counter-value {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--text-primary);
+    line-height: 1.2;
+    margin-bottom: 4px;
+}
+
+.trust-badge .counter-label {
+    font-size: 13px;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+/* 8. Smooth Hover Lift on All Cards */
+.category-card,
+.why-us-card,
+.offer-card,
+.trust-badge,
+.testimonial-card {
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                border-color 0.35s ease;
+}
+
+/* 9. Premium Badge Styling */
+.product-discount {
+    background: linear-gradient(135deg, #FF8C00, #FFD700);
+    color: #1A1D2E;
+    font-weight: 800;
+    padding: 5px 12px;
+    border-radius: 6px 0 12px 0;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 8px rgba(255, 140, 0, 0.35);
+    text-shadow: none;
+    top: 0;
+    left: 0;
+    border: 1px solid rgba(255, 215, 0, 0.4);
+}
+
+/* 10. Promotional Ticker / Marquee */
+.promo-ticker {
+    background: linear-gradient(90deg, #1A1D2E, #2D3148, #1A1D2E);
+    color: #FFD54F;
+    padding: 10px 0;
+    overflow: hidden;
+    position: relative;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+.promo-ticker::before,
+.promo-ticker::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 80px;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.promo-ticker::before {
+    left: 0;
+    background: linear-gradient(90deg, #1A1D2E, transparent);
+}
+
+.promo-ticker::after {
+    right: 0;
+    background: linear-gradient(-90deg, #1A1D2E, transparent);
+}
+
+@keyframes ticker-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.promo-ticker .ticker-content {
+    display: flex;
+    white-space: nowrap;
+    animation: ticker-scroll 22s linear infinite;
+    gap: 0;
+}
+
+.promo-ticker .ticker-content span {
+    display: inline-flex;
+    align-items: center;
+    padding: 0 40px;
+}
+
+.promo-ticker .ticker-content span::after {
+    content: '|';
+    margin-left: 40px;
+    opacity: 0.3;
+    color: #FFD54F;
+}
+
+/* ===== TESTIMONIALS SECTION ===== */
+.testimonials-section {
+    padding: 50px 0;
+    background: linear-gradient(135deg, #F7F8FA 0%, #E8F5E9 100%);
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.testimonial-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    position: relative;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-md);
+    border-color: transparent;
+}
+
+.testimonial-card .quote-icon {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    font-size: 28px;
+    color: var(--primary-light);
+    opacity: 0.6;
+}
+
+.testimonial-stars {
+    color: #FFB300;
+    font-size: 14px;
+    margin-bottom: 12px;
+    letter-spacing: 2px;
+}
+
+.testimonial-text {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 18px;
+    font-style: italic;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.testimonial-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--primary-gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.testimonial-author-info h5 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+}
+
+.testimonial-author-info span {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+/* ===== BRAND PARTNERS STRIP ===== */
+.brands-strip {
+    padding: 35px 0;
+    background: white;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.brands-strip .section-label {
+    text-align: center;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.brands-strip .brands-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.brands-strip .brand-item {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-muted);
+    opacity: 0.5;
+    transition: var(--transition);
+    letter-spacing: 0.5px;
+    cursor: default;
+}
+
+.brands-strip .brand-item:hover {
+    opacity: 1;
+    color: var(--primary);
+    transform: scale(1.08);
+}
+
+/* ===== HEADER SHRINK ON SCROLL ===== */
+.header.header-shrink .logo img {
+    height: 40px;
+    transition: height 0.3s ease;
+}
+
+.header .logo img {
+    transition: height 0.3s ease;
+}
+
+.header.header-shrink .container {
+    padding-top: 8px;
+    padding-bottom: 8px;
 }

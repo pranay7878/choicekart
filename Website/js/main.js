@@ -644,4 +644,173 @@ document.addEventListener('DOMContentLoaded', () => {
         card.addEventListener('click', () => { const cat = card.dataset.category; if (cat) filterByCategory(cat); });
     });
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeCart(); });
+
+    // === Premium Enhancements Init ===
+    initFadeInAnimations();
+    initCounterAnimations();
+    initOfferAutoRotation();
+    initImageLazyLoad();
+    initHeaderShrink();
+    initProductImageShimmer();
 });
+
+// ===== PREMIUM ENHANCEMENT FUNCTIONS =====
+
+// 1. Intersection Observer for Fade-In Animations
+function initFadeInAnimations() {
+    const fadeElements = document.querySelectorAll('.fade-in-up');
+    if (!fadeElements.length) return;
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.12,
+        rootMargin: '0px 0px -40px 0px'
+    });
+
+    fadeElements.forEach(el => observer.observe(el));
+}
+
+// 2. Counter Animation - Numbers Count Up When Visible
+function initCounterAnimations() {
+    const counters = document.querySelectorAll('.counter-value[data-target]');
+    if (!counters.length) return;
+
+    let animated = false;
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !animated) {
+                animated = true;
+                counters.forEach(counter => animateCounter(counter));
+                observer.disconnect();
+            }
+        });
+    }, { threshold: 0.3 });
+
+    counters.forEach(counter => observer.observe(counter));
+}
+
+function animateCounter(el) {
+    const target = parseInt(el.dataset.target);
+    const suffix = el.dataset.suffix || '+';
+    const duration = 2000;
+    const startTime = performance.now();
+
+    function update(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        // Ease out cubic
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const current = Math.floor(eased * target);
+        el.textContent = current.toLocaleString('en-IN') + suffix;
+        if (progress < 1) {
+            requestAnimationFrame(update);
+        }
+    }
+    requestAnimationFrame(update);
+}
+
+// 3. Auto-Rotating Offers - Cards Gently Highlight One at a Time
+function initOfferAutoRotation() {
+    const offerCards = document.querySelectorAll('.offer-card');
+    if (offerCards.length === 0) return;
+
+    let currentIndex = 0;
+    setInterval(() => {
+        // Remove highlight from all
+        offerCards.forEach(card => card.classList.remove('offer-highlight'));
+        // Add highlight to current
+        offerCards[currentIndex].classList.add('offer-highlight');
+        currentIndex = (currentIndex + 1) % offerCards.length;
+    }, 3000);
+}
+
+// 4. Image Lazy Loading with Fade-In Effect
+function initImageLazyLoad() {
+    const images = document.querySelectorAll('.product-image img[loading="lazy"]');
+
+    const imageObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.style.opacity = '0';
+                img.style.transition = 'opacity 0.5s ease';
+
+                if (img.complete) {
+                    img.style.opacity = '1';
+                    const wrapper = img.closest('.product-image');
+                    if (wrapper) wrapper.classList.add('loaded');
+                } else {
+                    img.addEventListener('load', function() {
+                        img.style.opacity = '1';
+                        const wrapper = img.closest('.product-image');
+                        if (wrapper) wrapper.classList.add('loaded');
+                    }, { once: true });
+                }
+
+                imageObserver.unobserve(img);
+            }
+        });
+    }, { rootMargin: '100px' });
+
+    images.forEach(img => imageObserver.observe(img));
+}
+
+// 5. Header Shrink on Scroll
+function initHeaderShrink() {
+    const header = document.querySelector('.header');
+    if (!header) return;
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 80) {
+            header.classList.add('header-shrink');
+        } else {
+            header.classList.remove('header-shrink');
+        }
+    });
+}
+
+// 6. Product Image Shimmer - Mark Images as Loaded
+function initProductImageShimmer() {
+    // Observe the products grid for dynamically rendered products
+    const grid = document.getElementById('products-grid');
+    if (!grid) return;
+
+    const mutationObs = new MutationObserver(() => {
+        const productImages = grid.querySelectorAll('.product-image');
+        productImages.forEach(wrapper => {
+            const img = wrapper.querySelector('img');
+            if (!img) return;
+            if (img.complete && img.naturalHeight > 0) {
+                wrapper.classList.add('loaded');
+            } else {
+                img.addEventListener('load', () => {
+                    wrapper.classList.add('loaded');
+                }, { once: true });
+                img.addEventListener('error', () => {
+                    wrapper.classList.add('loaded');
+                }, { once: true });
+            }
+        });
+    });
+
+    mutationObs.observe(grid, { childList: true, subtree: true });
+
+    // Also handle already rendered products
+    const existingImages = grid.querySelectorAll('.product-image');
+    existingImages.forEach(wrapper => {
+        const img = wrapper.querySelector('img');
+        if (!img) return;
+        if (img.complete && img.naturalHeight > 0) {
+            wrapper.classList.add('loaded');
+        } else {
+            img.addEventListener('load', () => wrapper.classList.add('loaded'), { once: true });
+            img.addEventListener('error', () => wrapper.classList.add('loaded'), { once: true });
+        }
+    });
+}
