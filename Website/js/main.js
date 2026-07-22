@@ -334,7 +334,7 @@ const products = [
         discount: 15,
         weight: "500 gm",
         category: "beverages",
-        image: CAT + "beverages/bournvita-health-drink.jpg"
+        image: DL + "Bournvita Health Drink.jpg"
     },
 
     // --- HOUSEHOLD ---
@@ -402,7 +402,7 @@ const products = [
         discount: 15,
         weight: "250 gm",
         category: "beverages",
-        image: CAT + "beverages/taj-mahal-tea.jpg"
+        image: DL + "Taj Mahal Tea.jpg"
     }
 ];
 
