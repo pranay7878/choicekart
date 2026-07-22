@@ -463,6 +463,13 @@ function updateCartUI() {
         cartItems.innerHTML = '';
         if (cartEmpty) cartEmpty.style.display = 'block';
         if (cartFooter) cartFooter.style.display = 'none';
+        // Reset all product card buttons back to "Add to Cart"
+        document.querySelectorAll('.product-card').forEach(card => {
+            const addBtn = card.querySelector('.add-to-cart-btn');
+            const qtyCtrl = card.querySelector('.qty-controls');
+            if (addBtn) addBtn.style.display = 'flex';
+            if (qtyCtrl) qtyCtrl.classList.remove('active');
+        });
         return;
     }
 
