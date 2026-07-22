@@ -69,11 +69,11 @@
                 <button class="mobile-menu-btn" id="mobile-menu-btn">
                     <i class="fas fa-bars"></i>
                 </button>
-                <a href="#" class="header-action">
+                <a href="#" class="header-action" onclick="openLoginModal(); return false;">
                     <i class="fas fa-user-circle"></i>
                     <span>Login</span>
                 </a>
-                <a href="#" class="header-action">
+                <a href="#" class="header-action" onclick="showToast('Wishlist feature coming soon! Stay tuned.'); return false;">
                     <i class="far fa-heart"></i>
                     <span>Wishlist</span>
                 </a>
@@ -717,6 +717,49 @@
     <button class="scroll-top" id="scroll-top" title="Back to Top">
         <i class="fas fa-arrow-up"></i>
     </button>
+
+    <!-- ===== LOGIN MODAL ===== -->
+    <div class="modal-overlay" id="login-overlay" onclick="closeLoginModal()"></div>
+    <div class="login-modal" id="login-modal">
+        <button class="modal-close" onclick="closeLoginModal()">&times;</button>
+        <div class="modal-logo">
+            <img src="assets/images/logo.jpeg" alt="Choice Kart">
+        </div>
+        <h3>Welcome to Choice Kart</h3>
+        <p class="modal-subtitle">Login &amp; Account features are launching soon!</p>
+        <div class="modal-features">
+            <div class="modal-feature">
+                <i class="fas fa-mobile-alt"></i>
+                <span>OTP Login via Phone</span>
+                <span class="coming-tag">Coming Soon</span>
+            </div>
+            <div class="modal-feature">
+                <i class="fas fa-shopping-bag"></i>
+                <span>Order History &amp; Tracking</span>
+                <span class="coming-tag">Coming Soon</span>
+            </div>
+            <div class="modal-feature">
+                <i class="fas fa-heart"></i>
+                <span>Wishlist &amp; Saved Items</span>
+                <span class="coming-tag">Coming Soon</span>
+            </div>
+            <div class="modal-feature">
+                <i class="fas fa-gift"></i>
+                <span>Rewards &amp; Coupons</span>
+                <span class="coming-tag">Coming Soon</span>
+            </div>
+        </div>
+        <div class="modal-divider"><span>Order Now Via</span></div>
+        <div class="modal-actions">
+            <a href="https://wa.me/919666991993?text=Hi%20Choice%20Kart!%20I'd%20like%20to%20place%20an%20order." class="modal-btn whatsapp-btn" target="_blank">
+                <i class="fab fa-whatsapp"></i> WhatsApp Order
+            </a>
+            <a href="tel:9666991993" class="modal-btn call-btn">
+                <i class="fas fa-phone-alt"></i> Call: 9666991993
+            </a>
+        </div>
+        <p class="modal-footer-text">Choice Kart by Varnika Group Pvt Ltd</p>
+    </div>
 
     <!-- JavaScript -->
     <script src="js/main.js"></script>

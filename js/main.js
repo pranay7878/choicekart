@@ -558,13 +558,26 @@ function renderProducts(filterCategory = 'all') {
     updateCartUI();
 }
 
+// ===== LOGIN MODAL =====
+function openLoginModal() {
+    document.getElementById('login-overlay').classList.add('active');
+    document.getElementById('login-modal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeLoginModal() {
+    document.getElementById('login-overlay').classList.remove('active');
+    document.getElementById('login-modal').classList.remove('active');
+    document.body.style.overflow = '';
+}
+
 // ===== WISHLIST =====
 function toggleWishlist(btn) {
     btn.classList.toggle('active');
     const icon = btn.querySelector('i');
     if (btn.classList.contains('active')) {
         icon.classList.remove('far'); icon.classList.add('fas');
-        showToast('Added to Wishlist \u2764\uFE0F');
+        showToast('Wishlist feature coming soon! Stay tuned.');
     } else {
         icon.classList.remove('fas'); icon.classList.add('far');
         showToast('Removed from Wishlist');
@@ -650,7 +663,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.category-card').forEach(card => {
         card.addEventListener('click', () => { const cat = card.dataset.category; if (cat) filterByCategory(cat); });
     });
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeCart(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') { closeCart(); closeLoginModal(); } });
 
     // === Premium Enhancements Init ===
     initFadeInAnimations();
