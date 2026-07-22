@@ -2126,128 +2126,89 @@ button {
     color: #FFD54F;
 }
 
-/* ===== TESTIMONIALS SECTION ===== */
-.testimonials-section {
+/* ===== TRUSTED BRANDS SECTION ===== */
+.brands-section {
     padding: 50px 0;
-    background: linear-gradient(135deg, #F7F8FA 0%, #E8F5E9 100%);
-}
-
-.testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-}
-
-.testimonial-card {
-    background: white;
-    border-radius: var(--radius-lg);
-    padding: 28px;
-    box-shadow: var(--shadow);
-    border: 1px solid var(--border);
-    position: relative;
-}
-
-.testimonial-card:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--shadow-md);
-    border-color: transparent;
-}
-
-.testimonial-card .quote-icon {
-    position: absolute;
-    top: 16px;
-    right: 20px;
-    font-size: 28px;
-    color: var(--primary-light);
-    opacity: 0.6;
-}
-
-.testimonial-stars {
-    color: #FFB300;
-    font-size: 14px;
-    margin-bottom: 12px;
-    letter-spacing: 2px;
-}
-
-.testimonial-text {
-    font-size: 14px;
-    color: var(--text-secondary);
-    line-height: 1.7;
-    margin-bottom: 18px;
-    font-style: italic;
-}
-
-.testimonial-author {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.testimonial-avatar {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background: var(--primary-gradient);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-weight: 700;
-    font-size: 16px;
-}
-
-.testimonial-author-info h5 {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--text-primary);
-    margin-bottom: 2px;
-}
-
-.testimonial-author-info span {
-    font-size: 12px;
-    color: var(--text-muted);
-}
-
-/* ===== BRAND PARTNERS STRIP ===== */
-.brands-strip {
-    padding: 35px 0;
     background: white;
     border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
+    overflow: hidden;
 }
 
-.brands-strip .section-label {
-    text-align: center;
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--text-muted);
-    font-weight: 600;
-    margin-bottom: 20px;
+.brands-marquee {
+    overflow: hidden;
+    position: relative;
+    margin-top: 10px;
 }
 
-.brands-strip .brands-list {
+.brands-marquee::before,
+.brands-marquee::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 100px;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.brands-marquee::before {
+    left: 0;
+    background: linear-gradient(90deg, white, transparent);
+}
+
+.brands-marquee::after {
+    right: 0;
+    background: linear-gradient(-90deg, white, transparent);
+}
+
+@keyframes brands-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.brands-track {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
-    flex-wrap: wrap;
+    gap: 16px;
+    animation: brands-scroll 35s linear infinite;
+    width: max-content;
 }
 
-.brands-strip .brand-item {
-    font-size: 18px;
+.brands-track:hover {
+    animation-play-state: paused;
+}
+
+.brand-card {
+    flex-shrink: 0;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 14px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    cursor: default;
+    min-width: 130px;
+}
+
+.brand-card:hover {
+    border-color: var(--primary);
+    background: var(--primary-light);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+}
+
+.brand-logo {
+    font-size: 15px;
     font-weight: 700;
     color: var(--text-muted);
-    opacity: 0.5;
-    transition: var(--transition);
     letter-spacing: 0.5px;
-    cursor: default;
+    white-space: nowrap;
+    transition: var(--transition);
 }
 
-.brands-strip .brand-item:hover {
-    opacity: 1;
+.brand-card:hover .brand-logo {
     color: var(--primary);
-    transform: scale(1.08);
 }
 
 /* ===== HEADER SHRINK ON SCROLL ===== */
