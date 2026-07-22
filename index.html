@@ -1,10 +1,732 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta http-equiv="refresh" content="0; url=Website/index.html">
-    <title>Choice Kart - Redirecting...</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Choice Kart - Your trusted online grocery store in Jagtial. Fresh vegetables, fruits & groceries delivered to your doorstep within 30 minutes. Smart Choice, Better Life.">
+    <meta name="keywords" content="Choice Kart, Jagtial grocery delivery, online grocery Jagtial, fresh vegetables Jagtial, fresh fruits delivery, doorstep grocery delivery Telangana">
+    <meta name="author" content="Choice Kart - Balusani Thirumal Goud">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Choice Kart - Smart Choice, Better Life">
+    <meta property="og:description" content="Fresh groceries, vegetables & fruits delivered to your doorstep in Jagtial. Best prices guaranteed.">
+    <meta property="og:image" content="assets/images/logo.jpeg">
+    <meta property="og:type" content="website">
+
+    <title>Choice Kart - Smart Choice, Better Life | Fresh Grocery Delivery in Jagtial</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="assets/images/logo.jpeg">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <p>Redirecting to <a href="Website/index.html">Choice Kart</a>...</p>
+
+    <!-- ===== TOP BAR ===== -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-left">
+                <span><i class="fas fa-map-marker-alt"></i> Serving Jagtial &amp; Nearby Areas (5 KM Radius)</span>
+                <span><i class="fas fa-clock"></i> Daily: 9:00 AM - 7:00 PM</span>
+            </div>
+            <div class="top-bar-right">
+                <a href="tel:9666991993"><i class="fas fa-phone-alt"></i> 9666991993</a>
+                <span class="highlight"><i class="fas fa-truck"></i> Free Delivery on Orders Above &#8377;499</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== HEADER ===== -->
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="assets/images/logo.jpeg" alt="Choice Kart - Smart Choice, Better Life">
+            </a>
+
+            <div class="deliver-to">
+                <i class="fas fa-map-marker-alt"></i>
+                <div class="deliver-to-text">
+                    <small>Deliver to</small>
+                    <strong>Jagtial <i class="fas fa-chevron-down" style="font-size:9px; margin-left:3px;"></i></strong>
+                </div>
+            </div>
+
+            <form class="search-bar" id="search-form">
+                <input type="text" id="search-input" placeholder="Search for atta, dal, rice, vegetables, fruits...">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+
+            <div class="header-actions">
+                <button class="mobile-menu-btn" id="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <a href="#" class="header-action">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Login</span>
+                </a>
+                <a href="#" class="header-action">
+                    <i class="far fa-heart"></i>
+                    <span>Wishlist</span>
+                </a>
+                <a href="#" class="header-action" onclick="openCart(); return false;">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="badge cart-badge" style="display:none;">0</span>
+                    <span>Cart</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== CATEGORY NAV ===== -->
+    <nav class="category-nav">
+        <div class="container">
+            <a href="#" class="all-categories"><i class="fas fa-th-large"></i> All Categories</a>
+            <a href="#" class="active" onclick="filterByCategory('all', this); return false;">All</a>
+            <a href="#" onclick="filterByCategory('grocery', this); return false;"><i class="fas fa-shopping-basket"></i> Grocery</a>
+            <a href="#" onclick="filterByCategory('fruits', this); return false;"><i class="fas fa-apple-alt"></i> Fruits</a>
+            <a href="#" onclick="filterByCategory('vegetables', this); return false;"><i class="fas fa-carrot"></i> Vegetables</a>
+            <a href="#" onclick="filterByCategory('dairy', this); return false;"><i class="fas fa-cheese"></i> Dairy</a>
+            <a href="#" onclick="filterByCategory('snacks', this); return false;"><i class="fas fa-cookie-bite"></i> Snacks</a>
+            <a href="#" onclick="filterByCategory('beverages', this); return false;"><i class="fas fa-mug-hot"></i> Beverages</a>
+            <a href="#" onclick="filterByCategory('household', this); return false;"><i class="fas fa-home"></i> Household</a>
+            <a href="#" class="offers-link"><i class="fas fa-bolt"></i> Offers</a>
+        </div>
+    </nav>
+
+    <!-- ===== HERO BANNER ===== -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-bolt"></i> #1 Trusted Grocery Store in Jagtial
+                </div>
+                <h1>
+                    <span class="text-green">Fresh Groceries</span><br>
+                    Delivered to Your<br>
+                    <span class="text-orange">Doorstep</span>
+                </h1>
+                <p>Experience hassle-free grocery shopping with Choice Kart. Premium quality groceries, farm-fresh vegetables &amp; fruits delivered within 30 minutes at unbeatable prices.</p>
+                <div class="hero-buttons">
+                    <a href="#products-section" class="btn-primary">
+                        <i class="fas fa-shopping-bag"></i> Shop Now
+                    </a>
+                    <a href="#categories-section" class="btn-outline">
+                        <i class="fas fa-th-large"></i> Browse Categories
+                    </a>
+                </div>
+                <div class="hero-features">
+                    <div class="hero-feature">
+                        <div class="feature-icon green"><i class="fas fa-shipping-fast"></i></div>
+                        <span>30 Min Delivery</span>
+                    </div>
+                    <div class="hero-feature">
+                        <div class="feature-icon orange"><i class="fas fa-medal"></i></div>
+                        <span>Premium Quality</span>
+                    </div>
+                    <div class="hero-feature">
+                        <div class="feature-icon blue"><i class="fas fa-hand-holding-usd"></i></div>
+                        <span>Lowest Prices</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="assets/images/logo.jpeg" alt="Choice Kart - Fresh Groceries Delivered">
+                <div class="hero-stats">
+                    <div class="stat-icon"><i class="fas fa-users"></i></div>
+                    <div class="stat-text">
+                        <strong>2,500+</strong>
+                        <small>Happy Customers</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROMOTIONAL TICKER ===== -->
+    <div class="promo-ticker">
+        <div class="ticker-content">
+            <span>&#127881; Grand Opening Offer: Use code CHOICE20 for 20% OFF</span>
+            <span>&#128666; Free delivery on orders above &#8377;499</span>
+            <span>&#127807; Fresh products daily from local farms</span>
+            <span>&#9889; 30-minute express delivery in Jagtial</span>
+            <span>&#127881; Grand Opening Offer: Use code CHOICE20 for 20% OFF</span>
+            <span>&#128666; Free delivery on orders above &#8377;499</span>
+            <span>&#127807; Fresh products daily from local farms</span>
+            <span>&#9889; 30-minute express delivery in Jagtial</span>
+        </div>
+    </div>
+
+    <!-- ===== TRUST BADGES / STATS ===== -->
+    <section class="trust-section fade-in-up">
+        <div class="container">
+            <div class="trust-badges-grid">
+                <div class="trust-badge">
+                    <div class="trust-icon green"><i class="fas fa-boxes"></i></div>
+                    <div class="counter-value" data-target="1000">0</div>
+                    <div class="counter-label">Products Available</div>
+                </div>
+                <div class="trust-badge">
+                    <div class="trust-icon orange"><i class="fas fa-users"></i></div>
+                    <div class="counter-value" data-target="2500">0</div>
+                    <div class="counter-label">Happy Customers</div>
+                </div>
+                <div class="trust-badge">
+                    <div class="trust-icon blue"><i class="fas fa-shipping-fast"></i></div>
+                    <div class="counter-value" data-target="30" data-suffix=" Min">0</div>
+                    <div class="counter-label">Same Day Delivery</div>
+                </div>
+                <div class="trust-badge">
+                    <div class="trust-icon purple"><i class="fas fa-certificate"></i></div>
+                    <div class="counter-value" data-target="100" data-suffix="%">0</div>
+                    <div class="counter-label">Fresh Guarantee</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== OFFERS SECTION ===== -->
+    <section class="section fade-in-up">
+        <div class="container">
+            <div class="section-header">
+                <h2><i class="fas fa-fire" style="color:#E53935;"></i> Exclusive Deals &amp; Offers</h2>
+                <a href="#" class="view-all">View All Offers <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="offers-grid">
+                <div class="offer-card mega">
+                    <span class="offer-label">Limited Time</span>
+                    <h3>Mega Sunday Special</h3>
+                    <p>Every unit only &#8377;2 on selected fruits &amp; vegetables</p>
+                    <div class="offer-value">FLAT &#8377;200 OFF</div>
+                    <a href="#" class="offer-btn"><i class="fas fa-shopping-bag"></i> Shop Now</a>
+                </div>
+                <div class="offer-card savings">
+                    <span class="offer-label">Savings Offer</span>
+                    <h3>Shop Above &#8377;2,000</h3>
+                    <p>Get &#8377;150 instant discount + up to &#8377;100 cashback</p>
+                    <div class="offer-value">&#8377;150 OFF</div>
+                    <a href="#" class="offer-btn"><i class="fas fa-tag"></i> Use Code: CK150</a>
+                </div>
+                <div class="offer-card delivery">
+                    <span class="offer-label">Free Delivery</span>
+                    <h3>Free Doorstep Delivery</h3>
+                    <p>On all orders above &#8377;499 within Jagtial city limits</p>
+                    <div class="offer-value">&#8377;0 Delivery</div>
+                    <a href="#" class="offer-btn"><i class="fas fa-truck"></i> Order Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SHOP BY CATEGORY ===== -->
+    <section class="section section-white fade-in-up" id="categories-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Shop by Category</h2>
+                <a href="#" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="categories-grid">
+                <div class="category-card" data-category="grocery">
+                    <div class="category-icon grocery">
+                        <img src="assets/images/products/flour/aashirvaad-whole-wheat-atta.jpg" alt="Grocery">
+                    </div>
+                    <h4>Grocery</h4>
+                    <span class="category-count">120+ items</span>
+                </div>
+                <div class="category-card" data-category="fruits">
+                    <div class="category-icon fruits">
+                        <img src="assets/images/downloads/Apple - Shimla, Premium.jpg" alt="Fruits">
+                    </div>
+                    <h4>Fresh Fruits</h4>
+                    <span class="category-count">40+ items</span>
+                </div>
+                <div class="category-card" data-category="vegetables">
+                    <div class="category-icon vegetables">
+                        <img src="assets/images/downloads/Fresh Tomato - Hybrid, Organically Grown.jpg" alt="Vegetables">
+                    </div>
+                    <h4>Vegetables</h4>
+                    <span class="category-count">50+ items</span>
+                </div>
+                <div class="category-card" data-category="dairy">
+                    <div class="category-icon dairy">
+                        <img src="assets/images/downloads/Amul Taaza Toned Fresh Milk.jpg" alt="Dairy">
+                    </div>
+                    <h4>Dairy &amp; Eggs</h4>
+                    <span class="category-count">30+ items</span>
+                </div>
+                <div class="category-card" data-category="snacks">
+                    <div class="category-icon snacks">
+                        <img src="assets/images/downloads/Lay's Potato Chips - Classic Salted.jpg" alt="Snacks">
+                    </div>
+                    <h4>Snacks</h4>
+                    <span class="category-count">60+ items</span>
+                </div>
+                <div class="category-card" data-category="beverages">
+                    <div class="category-icon beverages">
+                        <img src="assets/images/downloads/Tata Tea Premium - Rich & Aromatic.jpg" alt="Beverages">
+                    </div>
+                    <h4>Beverages</h4>
+                    <span class="category-count">35+ items</span>
+                </div>
+                <div class="category-card" data-category="household">
+                    <div class="category-icon household">
+                        <img src="assets/images/downloads/Surf Excel Matic Top Load Detergent.jpg" alt="Household">
+                    </div>
+                    <h4>Household</h4>
+                    <span class="category-count">45+ items</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PRODUCTS SECTION ===== -->
+    <section class="section fade-in-up" id="products-section">
+        <div class="container">
+            <div class="section-header">
+                <h2><i class="fas fa-star" style="color:#FFB300;"></i> Bestsellers &amp; Popular Products</h2>
+                <a href="#" class="view-all">View All Products <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="products-grid" id="products-grid">
+                <!-- Products rendered by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== WHY CHOOSE US ===== -->
+    <section class="section section-white fade-in-up">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why 2,500+ Customers Trust Choice Kart</h2>
+            </div>
+            <div class="why-us-grid">
+                <div class="why-us-card">
+                    <div class="why-us-icon green"><i class="fas fa-shopping-cart"></i></div>
+                    <h4>Wide Product Range</h4>
+                    <p>From daily essentials to premium groceries, find everything you need under one roof. 500+ products across 7 categories.</p>
+                </div>
+                <div class="why-us-card">
+                    <div class="why-us-icon orange"><i class="fas fa-tags"></i></div>
+                    <h4>Unbeatable Prices</h4>
+                    <p>We guarantee the lowest prices in Jagtial. Save up to 30% compared to local stores with our exclusive daily offers.</p>
+                </div>
+                <div class="why-us-card">
+                    <div class="why-us-icon blue"><i class="fas fa-shield-alt"></i></div>
+                    <h4>Freshness Guaranteed</h4>
+                    <p>Every product is handpicked and quality-checked. We source directly from farms ensuring maximum freshness.</p>
+                </div>
+                <div class="why-us-card">
+                    <div class="why-us-icon purple"><i class="fas fa-shipping-fast"></i></div>
+                    <h4>Express Delivery</h4>
+                    <p>Get your groceries delivered within 30 minutes. Reliable doorstep delivery across Jagtial within 5 KM radius.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS SECTION ===== -->
+    <section class="testimonials-section fade-in-up">
+        <div class="container">
+            <div class="section-header">
+                <h2><i class="fas fa-quote-left" style="color:#0A8F3F;"></i> What Our Customers Say</h2>
+                <a href="#" class="view-all">All Reviews <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <i class="fas fa-quote-right quote-icon"></i>
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Choice Kart has completely changed how I shop for groceries. The quality of vegetables and fruits is always fresh, and delivery is super fast. Best grocery store in Jagtial!"</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">SR</div>
+                        <div class="testimonial-author-info">
+                            <h5>Sunitha Reddy</h5>
+                            <span>Jagtial - Regular Customer</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <i class="fas fa-quote-right quote-icon"></i>
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Amazing prices and the delivery within 30 minutes is not a joke - they actually deliver on time! The Mega Sunday Offers save me so much money every week. Highly recommended!"</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">RK</div>
+                        <div class="testimonial-author-info">
+                            <h5>Rajesh Kumar</h5>
+                            <span>Jagtial - Since 2024</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <i class="fas fa-quote-right quote-icon"></i>
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="testimonial-text">"I love that they source directly from local farms. The produce is always fresh and the prices are much better than other stores. WhatsApp ordering makes it so convenient!"</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">PD</div>
+                        <div class="testimonial-author-info">
+                            <h5>Priya Devi</h5>
+                            <span>Jagtial - Loyal Customer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== BRAND PARTNERS STRIP ===== -->
+    <section class="brands-strip fade-in-up">
+        <div class="container">
+            <div class="section-label">Trusted Brands We Carry</div>
+            <div class="brands-list">
+                <span class="brand-item">Aashirvaad</span>
+                <span class="brand-item">Tata</span>
+                <span class="brand-item">Amul</span>
+                <span class="brand-item">Fortune</span>
+                <span class="brand-item">India Gate</span>
+                <span class="brand-item">MDH</span>
+                <span class="brand-item">Surf Excel</span>
+                <span class="brand-item">Haldiram's</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== DOWNLOAD APP SECTION ===== -->
+    <section class="app-section fade-in-up">
+        <div class="container">
+            <div class="app-content">
+                <div class="app-badge">
+                    <i class="fas fa-mobile-alt"></i> Mobile App
+                </div>
+                <h2>The Choice Kart App is Coming Soon</h2>
+                <p>We're building something amazing. Get exclusive app-only deals, lightning-fast ordering, real-time delivery tracking, and a seamless grocery shopping experience right from your pocket.</p>
+                <ul class="app-features">
+                    <li><i class="fas fa-check-circle"></i> Exclusive app-only discounts &amp; flash deals</li>
+                    <li><i class="fas fa-check-circle"></i> Real-time order tracking with live updates</li>
+                    <li><i class="fas fa-check-circle"></i> One-tap reorder from your purchase history</li>
+                    <li><i class="fas fa-check-circle"></i> Personalized recommendations just for you</li>
+                    <li><i class="fas fa-check-circle"></i> Secure payments with multiple options</li>
+                </ul>
+                <div class="app-buttons">
+                    <div class="app-btn">
+                        <i class="fab fa-google-play" style="color:#0A8F3F;"></i>
+                        <div class="btn-label">
+                            <small>GET IT ON</small>
+                            <strong>Google Play</strong>
+                        </div>
+                        <span class="coming-soon-tag">Coming Soon</span>
+                    </div>
+                    <div class="app-btn">
+                        <i class="fab fa-apple" style="color:#1A1D2E;"></i>
+                        <div class="btn-label">
+                            <small>Download on the</small>
+                            <strong>App Store</strong>
+                        </div>
+                        <span class="coming-soon-tag">Coming Soon</span>
+                    </div>
+                </div>
+            </div>
+            <div class="app-image">
+                <!-- Android Phone Mockup -->
+                <div class="phone-wrapper">
+                    <div class="phone-mockup android">
+                        <div class="phone-notch"></div>
+                        <div class="phone-screen">
+                            <div class="mini-app-header">
+                                <img src="assets/images/logo.jpeg" alt="CK" class="mini-logo">
+                                <span>Choice Kart</span>
+                            </div>
+                            <div class="mini-search"><i class="fas fa-search"></i> Search groceries...</div>
+                            <div class="mini-categories">
+                                <div class="mini-cat">
+                                    <div class="mini-cat-circle"><img src="assets/images/products/flour/aashirvaad-whole-wheat-atta.jpg" alt=""></div>
+                                    <span>Grocery</span>
+                                </div>
+                                <div class="mini-cat">
+                                    <div class="mini-cat-circle"><img src="assets/images/downloads/Fresh Tomato - Hybrid, Organically Grown.jpg" alt=""></div>
+                                    <span>Veggies</span>
+                                </div>
+                                <div class="mini-cat">
+                                    <div class="mini-cat-circle"><img src="assets/images/downloads/Apple - Shimla, Premium.jpg" alt=""></div>
+                                    <span>Fruits</span>
+                                </div>
+                                <div class="mini-cat">
+                                    <div class="mini-cat-circle"><img src="assets/images/downloads/Amul Taaza Toned Fresh Milk.jpg" alt=""></div>
+                                    <span>Dairy</span>
+                                </div>
+                            </div>
+                            <div class="mini-banner">
+                                <h4>Fresh Groceries Delivered!</h4>
+                                <p>30 min delivery in Jagtial</p>
+                            </div>
+                            <div class="mini-products">
+                                <div class="mini-product">
+                                    <div class="mini-product-img"><img src="assets/images/downloads/India Gate Basmati Rice - Super.jpg" alt=""></div>
+                                    <div class="mini-product-name">Basmati Rice</div>
+                                    <div class="mini-product-price">&#8377;899</div>
+                                    <div class="mini-product-btn">Add</div>
+                                </div>
+                                <div class="mini-product">
+                                    <div class="mini-product-img"><img src="assets/images/downloads/Fortune Sunlite Refined Sunflower Oil.jpg" alt=""></div>
+                                    <div class="mini-product-name">Sunflower Oil</div>
+                                    <div class="mini-product-price">&#8377;176</div>
+                                    <div class="mini-product-btn">Add</div>
+                                </div>
+                                <div class="mini-product">
+                                    <div class="mini-product-img"><img src="assets/images/downloads/Tata Salt - Iodised.jpg" alt=""></div>
+                                    <div class="mini-product-name">Tata Salt</div>
+                                    <div class="mini-product-price">&#8377;20</div>
+                                    <div class="mini-product-btn">Add</div>
+                                </div>
+                                <div class="mini-product">
+                                    <div class="mini-product-img"><img src="assets/images/downloads/Fresh Banana - Robusta.jpg" alt=""></div>
+                                    <div class="mini-product-name">Fresh Banana</div>
+                                    <div class="mini-product-price">&#8377;49</div>
+                                    <div class="mini-product-btn">Add</div>
+                                </div>
+                            </div>
+                            <div class="mini-bottom-bar">
+                                <i class="fas fa-home active-icon"></i>
+                                <i class="fas fa-th-large"></i>
+                                <i class="fas fa-shopping-cart"></i>
+                                <i class="fas fa-heart"></i>
+                                <i class="fas fa-user"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="phone-label"><i class="fab fa-android"></i> Android</div>
+                </div>
+
+                <!-- iOS Phone Mockup -->
+                <div class="phone-wrapper">
+                    <div class="phone-mockup ios">
+                        <div class="phone-notch dynamic-island"></div>
+                        <div class="phone-screen">
+                            <div class="mini-app-header" style="padding-top:32px;">
+                                <img src="assets/images/logo.jpeg" alt="CK" class="mini-logo">
+                                <span>Choice Kart</span>
+                            </div>
+                            <div class="mini-search"><i class="fas fa-search"></i> Search for atta, dal...</div>
+                            <div class="mini-banner" style="background: linear-gradient(135deg, #FFF3E0, #FFE0B2);">
+                                <h4 style="color: #E65100;">Mega Sunday Offer!</h4>
+                                <p>Flat &#8377;200 OFF on first order</p>
+                            </div>
+                            <div class="mini-categories">
+                                <div class="mini-cat">
+                                    <div class="mini-cat-circle"><img src="assets/images/downloads/Amul Pasteurised Butter.jpg" alt=""></div>
+                                    <span>Dairy</span>
+                                </div>
+                                <div class="mini-cat">
+                                    <div class="mini-cat-circle"><img src="assets/images/downloads/Lay's Potato Chips - Classic Salted.jpg" alt=""></div>
+                                    <span>Snacks</span>
+                                </div>
+                                <div class="mini-cat">
+                                    <div class="mini-cat-circle"><img src="assets/images/downloads/Bru Instant Coffee.jpg" alt=""></div>
+                                    <span>Drinks</span>
+                                </div>
+                                <div class="mini-cat">
+                                    <div class="mini-cat-circle"><img src="assets/images/downloads/Surf Excel Matic Top Load Detergent.jpg" alt=""></div>
+                                    <span>Home</span>
+                                </div>
+                            </div>
+                            <div class="mini-products">
+                                <div class="mini-product">
+                                    <div class="mini-product-img"><img src="assets/images/downloads/Amul Pasteurised Butter.jpg" alt=""></div>
+                                    <div class="mini-product-name">Amul Butter</div>
+                                    <div class="mini-product-price">&#8377;56</div>
+                                    <div class="mini-product-btn">Add</div>
+                                </div>
+                                <div class="mini-product">
+                                    <div class="mini-product-img"><img src="assets/images/downloads/Tata Tea Premium - Rich & Aromatic.jpg" alt=""></div>
+                                    <div class="mini-product-name">Tata Tea</div>
+                                    <div class="mini-product-price">&#8377;129</div>
+                                    <div class="mini-product-btn">Add</div>
+                                </div>
+                                <div class="mini-product">
+                                    <div class="mini-product-img"><img src="assets/images/downloads/Pomegranate - Fresh & Juicy.jpg" alt=""></div>
+                                    <div class="mini-product-name">Pomegranate</div>
+                                    <div class="mini-product-price">&#8377;160</div>
+                                    <div class="mini-product-btn">Add</div>
+                                </div>
+                                <div class="mini-product">
+                                    <div class="mini-product-img"><img src="assets/images/downloads/Vim Dishwash Liquid Gel - Lemon.jpg" alt=""></div>
+                                    <div class="mini-product-name">Vim Liquid</div>
+                                    <div class="mini-product-price">&#8377;95</div>
+                                    <div class="mini-product-btn">Add</div>
+                                </div>
+                            </div>
+                            <div class="mini-bottom-bar">
+                                <i class="fas fa-home active-icon"></i>
+                                <i class="fas fa-th-large"></i>
+                                <i class="fas fa-shopping-bag"></i>
+                                <i class="far fa-heart"></i>
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="phone-label"><i class="fab fa-apple"></i> iOS</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- About -->
+                <div class="footer-about">
+                    <img src="assets/images/logo.jpeg" alt="Choice Kart">
+                    <p>Choice Kart is Jagtial's most trusted online grocery store. We deliver premium quality groceries, farm-fresh vegetables, and seasonal fruits at the most affordable prices with lightning-fast doorstep delivery.</p>
+                    <p class="tagline">Smart Choice, Better Life &trade;</p>
+                    <div class="footer-social">
+                        <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://wa.me/919666991993" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" title="Twitter"><i class="fab fa-x-twitter"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">All Products</a></li>
+                        <li><a href="#">Today's Offers</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms &amp; Conditions</a></li>
+                    </ul>
+                </div>
+
+                <!-- Categories -->
+                <div>
+                    <h4>Top Categories</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Grocery &amp; Staples</a></li>
+                        <li><a href="#">Fresh Vegetables</a></li>
+                        <li><a href="#">Fresh Fruits</a></li>
+                        <li><a href="#">Dairy Products</a></li>
+                        <li><a href="#">Snacks &amp; Munchies</a></li>
+                        <li><a href="#">Tea, Coffee &amp; Beverages</a></li>
+                        <li><a href="#">Household Essentials</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4>Get in Touch</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-user-tie"></i>
+                            <span><strong>Proprietor:</strong> Balusani Thirumal Goud</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span><a href="tel:9666991993" style="color:rgba(255,255,255,0.6);">+91 96669 91993</a></span>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Jagtial, Telangana 505327, India</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Delivery Hours: 9:00 AM - 7:00 PM (Daily)</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-route"></i>
+                            <span>Delivery Coverage: 0 - 5 KM Radius</span>
+                        </li>
+                    </ul>
+                    <h4 style="margin-top:20px;">We Accept</h4>
+                    <div class="payment-methods">
+                        <span class="payment-chip"><i class="fas fa-mobile-alt"></i> UPI</span>
+                        <span class="payment-chip">PhonePe</span>
+                        <span class="payment-chip">Google Pay</span>
+                        <span class="payment-chip">Paytm</span>
+                        <span class="payment-chip"><i class="fas fa-credit-card"></i> Cards</span>
+                        <span class="payment-chip"><i class="fas fa-money-bill-wave"></i> COD</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <p>&copy; 2026 Choice Kart. All Rights Reserved. | Your Trust, Our Promise.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Refund Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== CART SIDEBAR ===== -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3><i class="fas fa-shopping-bag"></i> My Cart (<span class="cart-badge" id="cart-count">0</span> items)</h3>
+            <button class="cart-close" onclick="closeCart()">&times;</button>
+        </div>
+        <div class="cart-items" id="cart-items"></div>
+        <div class="cart-empty" id="cart-empty">
+            <i class="fas fa-shopping-bag"></i>
+            <p style="font-weight:600; color:#5A5D72;">Your cart is empty</p>
+            <p style="font-size:13px;">Browse our products and add items to your cart</p>
+        </div>
+        <div class="cart-footer" id="cart-footer" style="display:none;">
+            <div class="cart-summary">
+                <div class="cart-summary-row">
+                    <span>Subtotal</span>
+                    <span class="cart-total-amount">&#8377;0</span>
+                </div>
+                <div class="cart-summary-row">
+                    <span>You Save</span>
+                    <span id="cart-savings" style="color:#0A8F3F; font-weight:600;">&#8377;0</span>
+                </div>
+                <div class="cart-summary-row">
+                    <span>Delivery</span>
+                    <span style="color:#0A8F3F; font-weight:600;">FREE</span>
+                </div>
+                <div class="cart-summary-row total">
+                    <span>Total Amount</span>
+                    <span class="cart-total-amount">&#8377;0</span>
+                </div>
+            </div>
+            <button class="checkout-btn" onclick="showToast('Checkout coming soon! Contact Choice Kart by Varnika Group Pvt Ltd at 9666991993')">
+                <i class="fas fa-lock"></i> Proceed to Checkout
+            </button>
+        </div>
+    </div>
+
+    <!-- ===== FLOATING BUTTONS ===== -->
+    <a href="https://wa.me/919666991993?text=Hi%20Choice%20Kart!%20I'd%20like%20to%20place%20an%20order%20for%20grocery%20delivery%20in%20Jagtial." class="whatsapp-float" target="_blank" title="Order on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="tel:9666991993" class="call-float" title="Call Us: 9666991993">
+        <i class="fas fa-phone-alt"></i>
+    </a>
+    <button class="scroll-top" id="scroll-top" title="Back to Top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+
 </body>
 </html>
