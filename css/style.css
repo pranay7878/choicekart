@@ -134,11 +134,20 @@ button {
     gap: 10px;
 }
 
-.logo .logo-icon {
-    height: 48px;
-    width: 48px;
-    object-fit: contain;
-    border-radius: 8px;
+.logo-icon-wrap {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.logo-icon-wrap img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center top;
+    transform: scale(1.6) translateY(-8%);
 }
 
 .logo-text {
@@ -1984,8 +1993,8 @@ button {
     .header .container { flex-wrap: wrap; gap: 10px; }
     .deliver-to { display: none; }
     .logo-tagline { display: none; }
-    .logo-name { font-size: 17px; }
-    .logo .logo-icon { height: 40px; width: 40px; }
+    .logo-name { font-size: 16px; }
+    .logo-icon-wrap { width: 40px; height: 40px; }
     .search-bar { order: 3; max-width: 100%; flex: 0 0 100%; }
     .header-actions { gap: 2px; }
     .header-action span:not(.badge) { display: none; }
@@ -2392,13 +2401,13 @@ button {
 }
 
 /* ===== HEADER SHRINK ON SCROLL ===== */
-.header.header-shrink .logo .logo-icon {
-    height: 38px;
-    width: 38px;
+.header.header-shrink .logo-icon-wrap {
+    width: 40px;
+    height: 40px;
     transition: all 0.3s ease;
 }
 
-.header .logo .logo-icon {
+.logo-icon-wrap {
     transition: all 0.3s ease;
 }
 
