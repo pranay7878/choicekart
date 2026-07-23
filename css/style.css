@@ -281,10 +281,15 @@ button {
     background: var(--primary);
     color: white;
     border: none;
-    padding: 11px 22px;
+    width: 44px;
+    min-width: 44px;
+    padding: 0;
     cursor: pointer;
     font-size: 15px;
     transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .search-bar button:hover {
@@ -2021,7 +2026,8 @@ button {
     .header .container { flex-wrap: wrap; gap: 10px; padding: 10px 16px; }
     .deliver-to { display: none; }
     .ck-icon { height: 38px; }
-    .brand-text { display: none; }
+    .brand-text .bt-name { font-size: 14px; }
+    .brand-text .bt-tag { display: none; }
     .search-bar { order: 3; width: 100%; flex: 0 0 100%; box-sizing: border-box; }
     .header-actions { gap: 2px; }
     .header-action span:not(.badge) { display: none; }
