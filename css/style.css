@@ -569,18 +569,14 @@ button {
 }
 
 .hero-image .hero-stats {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: rgba(255,255,255,0.95);
-    padding: 6px 12px;
-    border-radius: var(--radius-full);
-    box-shadow: var(--shadow);
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 6px;
-    z-index: 2;
-    backdrop-filter: blur(8px);
+    background: white;
+    padding: 6px 14px;
+    border-radius: var(--radius-full);
+    box-shadow: var(--shadow);
+    margin-bottom: 10px;
 }
 
 .hero-stats .stat-icon {
@@ -2056,11 +2052,6 @@ button {
         font-size: 12px;
     }
     .hero-buttons { justify-content: center; }
-    .hero-image .hero-stats {
-        top: 5px;
-        right: 5px;
-        padding: 4px 8px;
-    }
     .hero-stats .stat-icon { width: 22px; height: 22px; font-size: 10px; }
     .hero-stats .stat-text strong { font-size: 10px; }
     .hero-stats .stat-text small { font-size: 8px; }
