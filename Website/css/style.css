@@ -131,53 +131,43 @@ button {
     flex-shrink: 0;
 }
 
-.logo-ck-icon {
-    width: 55px;
-    height: 55px;
-    overflow: hidden;
-    border-radius: 8px;
-}
-
-.logo-ck-icon img {
-    width: 200%;
-    height: auto;
+.logo .logo-img {
+    height: 90px;
+    width: 90px;
     object-fit: cover;
-    object-position: 10% 5%;
-    max-width: none;
-    transform: scale(1.1);
+    object-position: left center;
+    clip-path: inset(5% 55% 30% 0%);
+    margin: -10px -30px -10px 0;
 }
 
-/* Brand name beside search */
 .logo-brand {
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    line-height: 1.2;
+    line-height: 1.15;
     text-decoration: none;
 }
 
-.brand-choice {
-    font-size: 20px;
+.brand-name {
+    font-size: 22px;
     font-weight: 800;
-    color: #1A1D2E;
     letter-spacing: 0.5px;
 }
 
+.brand-choice {
+    color: #1A1D2E;
+}
+
 .brand-kart {
-    font-size: 20px;
-    font-weight: 800;
     color: #0A8F3F;
-    letter-spacing: 0.5px;
 }
 
 .brand-tagline {
     font-size: 9px;
     color: var(--text-muted);
-    letter-spacing: 1.2px;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
     font-weight: 500;
-    display: block;
 }
 
 /* Deliver To */
@@ -1994,7 +1984,7 @@ button {
     .mobile-menu-btn { display: block; }
     .header .container { flex-wrap: wrap; gap: 10px; }
     .deliver-to { display: none; }
-    .logo-ck-icon { width: 42px; height: 42px; }
+    .logo .logo-img { height: 70px; width: 70px; }
     .logo-brand { display: none; }
     .search-bar { order: 3; max-width: 100%; flex: 0 0 100%; }
     .header-actions { gap: 2px; }
@@ -2402,14 +2392,13 @@ button {
 }
 
 /* ===== HEADER SHRINK ON SCROLL ===== */
-.header.header-shrink .logo-ck-icon {
-    width: 42px;
-    height: 42px;
+.header.header-shrink .logo .logo-img {
+    height: 70px;
+    width: 70px;
 }
 
-.header.header-shrink .brand-choice,
-.header.header-shrink .brand-kart {
-    font-size: 17px;
+.header.header-shrink .brand-name {
+    font-size: 18px;
 }
 
 .header.header-shrink .brand-tagline {
