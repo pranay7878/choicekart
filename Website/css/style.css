@@ -570,15 +570,15 @@ button {
 
 .hero-image .hero-stats {
     position: absolute;
-    bottom: -30px;
-    left: -20px;
+    top: 12px;
+    right: 12px;
     background: white;
-    padding: 14px 20px;
+    padding: 10px 16px;
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-md);
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
 }
 
 .hero-stats .stat-icon {
