@@ -131,22 +131,9 @@ button {
     flex-shrink: 0;
 }
 
-/* CK icon cropped from logo.jpeg - shows only the cart icon */
 .ck-icon {
-    width: 50px;
     height: 50px;
-    overflow: hidden;
-    border-radius: 6px;
-    position: relative;
-}
-
-.ck-icon img {
-    position: absolute;
-    top: 2%;
-    left: 5%;
-    width: 180%;
-    height: auto;
-    max-width: none;
+    width: auto;
 }
 
 /* CHOICE KART text */
@@ -1989,7 +1976,7 @@ button {
     .mobile-menu-btn { display: block; }
     .header .container { flex-wrap: wrap; gap: 10px; }
     .deliver-to { display: none; }
-    .ck-icon { width: 40px; height: 40px; }
+    .ck-icon { height: 38px; }
     .brand-text { display: none; }
     .search-bar { order: 3; max-width: 100%; flex: 0 0 100%; }
     .header-actions { gap: 2px; }
@@ -2398,8 +2385,7 @@ button {
 
 /* ===== HEADER SHRINK ON SCROLL ===== */
 .header.header-shrink .ck-icon {
-    width: 40px;
-    height: 40px;
+    height: 38px;
 }
 
 .header.header-shrink .bt-name { font-size: 18px; }
