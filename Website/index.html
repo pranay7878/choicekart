@@ -61,7 +61,8 @@
             </div>
 
             <form class="search-bar" id="search-form">
-                <input type="text" id="search-input" placeholder="Search for atta, dal, rice, vegetables, fruits...">
+                <i class="fas fa-search search-icon-left"></i>
+                <input type="text" id="search-input" placeholder="Search groceries, fruits & more...">
                 <button type="submit"><i class="fas fa-search"></i></button>
             </form>
 
@@ -239,49 +240,49 @@
                         <img src="assets/images/products/flour/aashirvaad-whole-wheat-atta.jpg" alt="Grocery">
                     </div>
                     <h4>Grocery</h4>
-                    <span class="category-count">120+ items</span>
+                    <span class="category-count">120+ Products</span>
                 </div>
                 <div class="category-card" data-category="fruits">
                     <div class="category-icon fruits">
                         <img src="assets/images/downloads/Apple - Shimla, Premium.jpg" alt="Fruits">
                     </div>
                     <h4>Fresh Fruits</h4>
-                    <span class="category-count">40+ items</span>
+                    <span class="category-count">40+ Products</span>
                 </div>
                 <div class="category-card" data-category="vegetables">
                     <div class="category-icon vegetables">
                         <img src="assets/images/downloads/Fresh Tomato - Hybrid, Organically Grown.jpg" alt="Vegetables">
                     </div>
                     <h4>Vegetables</h4>
-                    <span class="category-count">50+ items</span>
+                    <span class="category-count">50+ Products</span>
                 </div>
                 <div class="category-card" data-category="dairy">
                     <div class="category-icon dairy">
                         <img src="assets/images/downloads/Amul Taaza Toned Fresh Milk.jpg" alt="Dairy">
                     </div>
                     <h4>Dairy &amp; Eggs</h4>
-                    <span class="category-count">30+ items</span>
+                    <span class="category-count">30+ Products</span>
                 </div>
                 <div class="category-card" data-category="snacks">
                     <div class="category-icon snacks">
                         <img src="assets/images/downloads/Lay's Potato Chips - Classic Salted.jpg" alt="Snacks">
                     </div>
                     <h4>Snacks</h4>
-                    <span class="category-count">60+ items</span>
+                    <span class="category-count">60+ Products</span>
                 </div>
                 <div class="category-card" data-category="beverages">
                     <div class="category-icon beverages">
                         <img src="assets/images/downloads/Tata Tea Premium - Rich & Aromatic.jpg" alt="Beverages">
                     </div>
                     <h4>Beverages</h4>
-                    <span class="category-count">35+ items</span>
+                    <span class="category-count">35+ Products</span>
                 </div>
                 <div class="category-card" data-category="household">
                     <div class="category-icon household">
                         <img src="assets/images/downloads/Surf Excel Matic Top Load Detergent.jpg" alt="Household">
                     </div>
                     <h4>Household</h4>
-                    <span class="category-count">45+ items</span>
+                    <span class="category-count">45+ Products</span>
                 </div>
             </div>
         </div>
@@ -679,8 +680,15 @@
         <div class="cart-items" id="cart-items"></div>
         <div class="cart-empty" id="cart-empty">
             <i class="fas fa-shopping-bag"></i>
-            <p style="font-weight:600; color:#5A5D72;">Your cart is empty</p>
-            <p style="font-size:13px;">Browse our products and add items to your cart</p>
+            <p style="font-weight:600; color:#5A5D72; font-size:17px; margin-bottom:6px;">Your cart is empty</p>
+            <p style="font-size:13px; color:#9CA3AF; margin-bottom:20px;">Browse our fresh groceries and add your favorite items.</p>
+            <button class="cart-empty-btn continue-btn" onclick="closeCart(); document.getElementById('products-section').scrollIntoView({behavior:'smooth'});">
+                <i class="fas fa-shopping-basket"></i> Continue Shopping
+            </button>
+            <button class="cart-empty-btn bestseller-btn" onclick="closeCart(); document.getElementById('products-section').scrollIntoView({behavior:'smooth'});">
+                <i class="fas fa-star"></i> View Best Sellers
+            </button>
+            <div class="cart-empty-products" id="cart-empty-products"></div>
         </div>
         <div class="cart-footer" id="cart-footer" style="display:none;">
             <div class="cart-summary">
@@ -726,6 +734,7 @@
             <img src="assets/images/logo.jpeg" alt="Choice Kart">
         </div>
         <h3>Welcome to Choice Kart</h3>
+        <p class="modal-tagline">Fast, Fresh &amp; Affordable Grocery Shopping</p>
         <p class="modal-subtitle">Login &amp; Account features are launching soon!</p>
         <div class="modal-features">
             <div class="modal-feature">

@@ -461,7 +461,7 @@ function updateCartUI() {
 
     if (cart.length === 0) {
         cartItems.innerHTML = '';
-        if (cartEmpty) cartEmpty.style.display = 'block';
+        if (cartEmpty) cartEmpty.style.display = 'flex';
         if (cartFooter) cartFooter.style.display = 'none';
         // Reset all product card buttons back to "Add to Cart"
         document.querySelectorAll('.product-card').forEach(card => {
@@ -470,6 +470,22 @@ function updateCartUI() {
             if (addBtn) addBtn.style.display = 'flex';
             if (qtyCtrl) qtyCtrl.classList.remove('active');
         });
+        // Show 4 popular products in empty cart
+        const emptyProds = document.getElementById('cart-empty-products');
+        if (emptyProds) {
+            const popular = products.filter(p => p.discount > 0).slice(0, 4);
+            emptyProds.innerHTML = '<h4><i class="fas fa-fire" style="color:#E53935;"></i> Today\'s Popular Picks</h4>' +
+                popular.map(p => `
+                    <div class="cart-empty-product" onclick="addToCart(${p.id})">
+                        <img src="${p.image}" alt="${p.name}">
+                        <div class="cep-info">
+                            <div class="cep-name">${p.name}</div>
+                            <div class="cep-price">\u20B9${p.price} <span style="text-decoration:line-through;color:#999;font-weight:400;font-size:11px;">\u20B9${p.originalPrice}</span></div>
+                        </div>
+                        <button class="cep-add" onclick="event.stopPropagation(); addToCart(${p.id})">+ Add</button>
+                    </div>
+                `).join('');
+        }
         return;
     }
 
