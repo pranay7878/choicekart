@@ -35,6 +35,7 @@
 
 html {
     scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -44,6 +45,43 @@ body {
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
+}
+
+/* Premium: cursor pointer on all clickable elements */
+a, button, [onclick], .category-card, .offer-card, .brand-card,
+.product-wishlist, .add-to-cart-btn, .qty-controls button,
+.header-action, .mobile-menu-btn, .scroll-top, .modal-close,
+.cart-close, .cart-empty-btn, .checkout-btn, .app-btn,
+.whatsapp-float, .call-float, .modal-btn, .offer-btn,
+.cep-add, .deliver-to {
+    cursor: pointer;
+}
+
+/* Premium: user-select none on buttons and nav */
+button, .category-nav a, .btn-primary, .btn-outline,
+.add-to-cart-btn, .qty-controls button, .header-action,
+.app-btn, .modal-btn, .checkout-btn, .cart-empty-btn,
+.offer-btn, .scroll-top, .mobile-menu-btn {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Premium: Focus styles for accessibility */
+.search-bar input:focus {
+    outline: none;
+}
+
+button:focus-visible,
+a:focus-visible,
+.search-bar input:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+.search-bar:focus-within input {
+    outline: none;
 }
 
 a {
@@ -2597,4 +2635,276 @@ button {
     font-size: 11px;
     color: var(--text-muted);
     letter-spacing: 0.3px;
+}
+
+/* ===== PERFORMANCE: content-visibility on below-fold sections ===== */
+.section,
+.brands-section,
+.app-section,
+.trust-section {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 500px;
+}
+
+/* Performance: will-change on animated elements */
+.product-card,
+.offer-card,
+.category-card,
+.why-us-card,
+.trust-badge {
+    will-change: transform;
+}
+
+/* ===== ICON PREMIUM: Consistent icon sizing ===== */
+/* Category nav icons - consistent size and spacing */
+.category-nav a i {
+    font-size: 14px;
+    width: 16px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.category-nav a.all-categories i {
+    font-size: 14px;
+}
+
+.category-nav a.offers-link i {
+    font-size: 14px;
+    color: #FFD54F;
+}
+
+/* Top bar icons - consistent size */
+.top-bar i {
+    font-size: 12px;
+    width: 14px;
+    text-align: center;
+}
+
+/* Hero feature icons - consistent */
+.hero-feature .feature-icon i {
+    font-size: 16px;
+}
+
+/* Trust section icons - consistent */
+.trust-badge .trust-icon i {
+    font-size: 22px;
+}
+
+/* Why-us icons - consistent */
+.why-us-icon i {
+    font-size: 26px;
+}
+
+/* Section header icons - subtle brand colors */
+.section-header h2 i.fa-fire {
+    color: #E53935;
+}
+
+.section-header h2 i.fa-star {
+    color: #FFB300;
+}
+
+/* Footer icons - consistent sizing */
+.footer-social a i {
+    font-size: 15px;
+}
+
+.footer-contact li i {
+    font-size: 14px;
+    width: 16px;
+}
+
+/* App features check icons - brand color */
+.app-features li i.fa-check-circle {
+    color: #FFD54F;
+    font-size: 16px;
+}
+
+/* ===== TEXT PREMIUM: Consistent typography ===== */
+/* Section headers - uniform look */
+.section-header h2 {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    line-height: 1.3;
+}
+
+/* Product card text - uniform */
+.product-brand {
+    font-size: 10px;
+    letter-spacing: 1px;
+    line-height: 1.4;
+}
+
+.product-name {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: -0.1px;
+}
+
+.product-weight {
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.price-current {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+}
+
+.price-original {
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+/* Why-us card text - uniform */
+.why-us-card h4 {
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: -0.1px;
+    line-height: 1.3;
+}
+
+.why-us-card p {
+    font-size: 13px;
+    line-height: 1.6;
+    letter-spacing: 0.1px;
+}
+
+/* Category card text - uniform */
+.category-card h4 {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.1px;
+    line-height: 1.3;
+}
+
+.category-card .category-count {
+    font-size: 11px;
+    line-height: 1.4;
+    letter-spacing: 0.2px;
+}
+
+/* Offer card text - uniform */
+.offer-card .offer-label {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    line-height: 1.4;
+}
+
+.offer-card h3 {
+    font-size: 20px;
+    line-height: 1.3;
+    letter-spacing: -0.2px;
+}
+
+.offer-card p {
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.offer-card .offer-value {
+    font-size: 32px;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+}
+
+/* ===== PADDING & WIDTH: Consistent section padding ===== */
+/* All major sections: 50px top/bottom */
+.section {
+    padding: 50px 0;
+}
+
+.trust-section {
+    padding: 40px 0;
+}
+
+.brands-section {
+    padding: 50px 0;
+}
+
+.app-section {
+    padding: 60px 0;
+}
+
+/* Product cards - uniform padding */
+.product-info {
+    padding: 16px;
+}
+
+/* Overflow prevention - prevent horizontal scroll on all screen sizes */
+.offers-grid,
+.categories-grid,
+.why-us-grid,
+.trust-badges-grid,
+.footer-grid,
+.products-grid {
+    max-width: 100%;
+}
+
+body {
+    max-width: 100vw;
+}
+
+/* Mobile overflow fixes */
+@media (max-width: 768px) {
+    .hero-image .hero-stats {
+        left: 10px;
+        bottom: -20px;
+    }
+
+    .hero-image img {
+        max-width: 100%;
+    }
+
+    .brands-track {
+        gap: 10px;
+    }
+
+    .brand-card {
+        min-width: 100px;
+        padding: 10px 18px;
+    }
+
+    .offer-card .offer-value {
+        font-size: 26px;
+    }
+
+    .app-content h2 {
+        font-size: 26px;
+    }
+
+    .trust-badges-grid {
+        gap: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-image .hero-stats {
+        left: 5px;
+        bottom: -15px;
+        padding: 10px 14px;
+    }
+
+    .hero-stats .stat-icon {
+        width: 34px;
+        height: 34px;
+        font-size: 14px;
+    }
+
+    .hero-stats .stat-text strong {
+        font-size: 13px;
+    }
+
+    .hero-stats .stat-text small {
+        font-size: 10px;
+    }
+
+    .phone-mockup {
+        width: 150px;
+        height: 300px;
+        border-radius: 22px;
+    }
 }

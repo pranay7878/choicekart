@@ -549,7 +549,7 @@ function renderProducts(filterCategory = 'all') {
                 <i class="far fa-heart"></i>
             </button>
             <div class="product-image">
-                <img src="${product.image}" alt="${product.name}" loading="lazy">
+                <img src="${product.image}" alt="${product.name}" loading="lazy" decoding="async">
             </div>
             <div class="product-info">
                 <div class="product-brand">${product.brand}</div>
