@@ -2026,7 +2026,7 @@ button {
     .deliver-to { display: none; }
     .ck-icon { height: 38px; }
     .brand-text { display: none; }
-    .search-bar { order: 3; max-width: 100%; flex: 0 0 100%; }
+    .search-bar { order: 3; max-width: calc(100% - 10px); flex: 0 0 calc(100% - 10px); margin: 0 auto; }
     .header-actions { gap: 2px; }
     .header-action span:not(.badge) { display: none; }
     .header-action { padding: 8px 10px; }
