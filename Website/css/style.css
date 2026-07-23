@@ -2083,18 +2083,65 @@ button {
     .section-header .view-all { font-size: 12px; }
 }
 
-/* ===== PREMIUM UPGRADES ===== */
-
-/* 1. Scroll Fade-In-Up Animation */
-.fade-in-up {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+/* ===== LOADING SKELETON ===== */
+@keyframes skeleton-pulse {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
 }
 
-.fade-in-up.visible {
-    opacity: 1;
-    transform: translateY(0);
+.skeleton-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    padding: 16px;
+    overflow: hidden;
+}
+
+.skeleton-img {
+    height: 140px;
+    border-radius: var(--radius);
+    margin-bottom: 12px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: skeleton-pulse 1.5s ease infinite;
+}
+
+.skeleton-line {
+    height: 12px;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: skeleton-pulse 1.5s ease infinite;
+}
+
+.skeleton-line.w80 { width: 80%; }
+.skeleton-line.w60 { width: 60%; }
+.skeleton-line.w40 { width: 40%; }
+
+.skeleton-btn {
+    height: 38px;
+    border-radius: var(--radius);
+    margin-top: 12px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: skeleton-pulse 1.5s ease infinite;
+}
+
+/* ===== PREMIUM UPGRADES ===== */
+
+/* 1. Scroll Fade-In-Up Animation - desktop only to avoid blank screen on mobile */
+@media (min-width: 769px) {
+    .fade-in-up {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in-up.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* 2. Product Card Glassmorphism on Hover */
@@ -2203,6 +2250,7 @@ button {
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow);
     transition: var(--transition);
+    overflow: hidden;
     border: 1px solid var(--border);
     min-width: 0;
 }
@@ -2250,12 +2298,16 @@ button {
     color: var(--text-primary);
     line-height: 1.2;
     margin-bottom: 4px;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .trust-badge .counter-label {
     font-size: 13px;
     color: var(--text-secondary);
     font-weight: 500;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 /* 8. Smooth Hover Lift on All Cards */
