@@ -127,12 +127,46 @@ button {
     gap: 24px;
 }
 
-.logo { flex-shrink: 0; }
+.logo {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 
-.logo img {
-    height: 60px;
-    width: auto;
-    border-radius: 6px;
+.logo .logo-icon {
+    height: 48px;
+    width: 48px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.logo-name {
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+.logo-choice {
+    color: #1A1D2E;
+}
+
+.logo-kart {
+    color: #0A8F3F;
+}
+
+.logo-tagline {
+    font-size: 9px;
+    color: var(--text-muted);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 500;
 }
 
 /* Deliver To */
@@ -1949,6 +1983,9 @@ button {
     .mobile-menu-btn { display: block; }
     .header .container { flex-wrap: wrap; gap: 10px; }
     .deliver-to { display: none; }
+    .logo-tagline { display: none; }
+    .logo-name { font-size: 17px; }
+    .logo .logo-icon { height: 40px; width: 40px; }
     .search-bar { order: 3; max-width: 100%; flex: 0 0 100%; }
     .header-actions { gap: 2px; }
     .header-action span:not(.badge) { display: none; }
@@ -2355,13 +2392,22 @@ button {
 }
 
 /* ===== HEADER SHRINK ON SCROLL ===== */
-.header.header-shrink .logo img {
-    height: 40px;
-    transition: height 0.3s ease;
+.header.header-shrink .logo .logo-icon {
+    height: 38px;
+    width: 38px;
+    transition: all 0.3s ease;
 }
 
-.header .logo img {
-    transition: height 0.3s ease;
+.header .logo .logo-icon {
+    transition: all 0.3s ease;
+}
+
+.header.header-shrink .logo-name {
+    font-size: 17px;
+}
+
+.header.header-shrink .logo-tagline {
+    font-size: 8px;
 }
 
 .header.header-shrink .container {
