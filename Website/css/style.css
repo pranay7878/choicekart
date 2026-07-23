@@ -131,9 +131,48 @@ button {
     flex-shrink: 0;
 }
 
-.logo img {
-    height: 55px;
-    width: auto;
+/* CK icon cropped from logo.jpeg - shows only the cart icon */
+.ck-icon {
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    border-radius: 6px;
+    position: relative;
+}
+
+.ck-icon img {
+    position: absolute;
+    top: -5%;
+    left: -5%;
+    width: 220%;
+    height: auto;
+    max-width: none;
+}
+
+/* CHOICE KART text */
+.brand-text {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+    text-decoration: none;
+}
+
+.bt-name {
+    font-size: 21px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+.bt-choice { color: #1A1D2E; }
+.bt-kart { color: #0A8F3F; }
+
+.bt-tag {
+    font-size: 9px;
+    color: var(--text-muted);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 500;
 }
 
 /* Deliver To */
@@ -1950,7 +1989,8 @@ button {
     .mobile-menu-btn { display: block; }
     .header .container { flex-wrap: wrap; gap: 10px; }
     .deliver-to { display: none; }
-    .logo img { height: 45px; }
+    .ck-icon { width: 40px; height: 40px; }
+    .brand-text { display: none; }
     .search-bar { order: 3; max-width: 100%; flex: 0 0 100%; }
     .header-actions { gap: 2px; }
     .header-action span:not(.badge) { display: none; }
@@ -2357,9 +2397,13 @@ button {
 }
 
 /* ===== HEADER SHRINK ON SCROLL ===== */
-.header.header-shrink .logo img {
-    height: 42px;
+.header.header-shrink .ck-icon {
+    width: 40px;
+    height: 40px;
 }
+
+.header.header-shrink .bt-name { font-size: 18px; }
+.header.header-shrink .bt-tag { font-size: 8px; }
 
 .header.header-shrink .container {
     padding-top: 8px;
