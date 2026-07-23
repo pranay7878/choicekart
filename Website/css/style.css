@@ -2033,8 +2033,13 @@ button {
     .hero-buttons { justify-content: center; }
 
     .offers-grid { grid-template-columns: 1fr; }
-    .trust-badges-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
-    .trust-badge .counter-value { font-size: 26px; }
+    .trust-badges-grid { grid-template-columns: repeat(4, 1fr); gap: 8px; }
+    .trust-badge { padding: 16px 8px; }
+    .trust-badge .counter-value { font-size: 18px; }
+    .trust-badge .counter-label { font-size: 9px; }
+    .trust-badge .trust-icon { width: 38px; height: 38px; font-size: 16px; margin-bottom: 8px; }
+    .section-header h2 { font-size: 20px; }
+    .section-header { flex-wrap: wrap; gap: 6px; }
     .categories-grid { grid-template-columns: repeat(4, 1fr); }
     .category-icon { width: 70px; height: 70px; font-size: 26px; }
     .products-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
@@ -2069,11 +2074,13 @@ button {
     .app-content h2 { font-size: 26px; }
     .why-us-card { padding: 24px 16px; }
     .promo-ticker .ticker-content { animation-duration: 12s; }
-    .trust-badges-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-    .trust-badge { padding: 20px 12px; }
-    .trust-badge .counter-value { font-size: 22px; }
-    .trust-badge .counter-label { font-size: 11px; }
-    .trust-badge .trust-icon { width: 42px; height: 42px; font-size: 18px; }
+    .trust-badges-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+    .trust-badge { padding: 14px 8px; }
+    .trust-badge .counter-value { font-size: 18px; }
+    .trust-badge .counter-label { font-size: 9px; }
+    .trust-badge .trust-icon { width: 34px; height: 34px; font-size: 15px; margin-bottom: 6px; }
+    .section-header h2 { font-size: 18px; }
+    .section-header .view-all { font-size: 12px; }
 }
 
 /* ===== PREMIUM UPGRADES ===== */
@@ -2637,13 +2644,13 @@ button {
     letter-spacing: 0.3px;
 }
 
-/* ===== PERFORMANCE: content-visibility on below-fold sections ===== */
-.section,
-.brands-section,
-.app-section,
-.trust-section {
-    content-visibility: auto;
-    contain-intrinsic-size: auto 500px;
+/* ===== PERFORMANCE: content-visibility on below-fold sections (desktop only) ===== */
+@media (min-width: 769px) {
+    .brands-section,
+    .app-section {
+        content-visibility: auto;
+        contain-intrinsic-size: auto 500px;
+    }
 }
 
 /* Performance: will-change on animated elements */
