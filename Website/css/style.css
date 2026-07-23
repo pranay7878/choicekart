@@ -2022,11 +2022,11 @@ button {
 @media (max-width: 768px) {
     .top-bar { display: none; }
     .mobile-menu-btn { display: block; }
-    .header .container { flex-wrap: wrap; gap: 10px; }
+    .header .container { flex-wrap: wrap; gap: 10px; padding: 10px 16px; }
     .deliver-to { display: none; }
     .ck-icon { height: 38px; }
     .brand-text { display: none; }
-    .search-bar { order: 3; max-width: calc(100% - 10px); flex: 0 0 calc(100% - 10px); margin: 0 auto; }
+    .search-bar { order: 3; width: 100%; flex: 0 0 100%; box-sizing: border-box; }
     .header-actions { gap: 2px; }
     .header-action span:not(.badge) { display: none; }
     .header-action { padding: 8px 10px; }
@@ -2049,9 +2049,11 @@ button {
     }
     .hero-features::-webkit-scrollbar { display: none; }
     .hero-feature {
-        min-width: 160px;
+        min-width: 170px;
+        max-width: 170px;
         flex-shrink: 0;
-        width: auto;
+        padding: 10px 14px;
+        font-size: 12px;
     }
     .hero-buttons { justify-content: center; }
     .hero-image { max-width: 250px; }
@@ -2940,58 +2942,12 @@ body {
 
 /* Mobile overflow fixes */
 @media (max-width: 768px) {
-    .hero-image .hero-stats {
-        left: 10px;
-        bottom: -20px;
-    }
-
-    .hero-image img {
-        max-width: 100%;
-    }
-
-    .brands-track {
-        gap: 10px;
-    }
-
-    .brand-card {
-        min-width: 100px;
-        padding: 10px 18px;
-    }
-
-    .offer-card .offer-value {
-        font-size: 26px;
-    }
-
-    .app-content h2 {
-        font-size: 26px;
-    }
-
-    .trust-badges-grid {
-        gap: 12px;
-    }
+    .brands-track { gap: 10px; }
+    .brand-card { min-width: 100px; padding: 10px 18px; }
+    .offer-card .offer-value { font-size: 26px; }
 }
 
 @media (max-width: 480px) {
-    .hero-image .hero-stats {
-        left: 5px;
-        bottom: -15px;
-        padding: 10px 14px;
-    }
-
-    .hero-stats .stat-icon {
-        width: 34px;
-        height: 34px;
-        font-size: 14px;
-    }
-
-    .hero-stats .stat-text strong {
-        font-size: 13px;
-    }
-
-    .hero-stats .stat-text small {
-        font-size: 10px;
-    }
-
     .phone-mockup {
         width: 150px;
         height: 300px;
